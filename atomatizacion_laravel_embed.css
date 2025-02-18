@@ -38,6 +38,10 @@ html, body {
     padding: 20px;
 }
 
+body {
+    overflow-y: auto !important;
+}
+
 /* Contenedor de navegación */
 nav {
     background: #333;
