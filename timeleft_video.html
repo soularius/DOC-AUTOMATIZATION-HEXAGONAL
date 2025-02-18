@@ -1,81 +1,454 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Automatización Laravel</title>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand|Actor|Source+Sans+Pro:900|Lato:400,700,900|Oswald:400,700|Abel:400|Dosis:600" rel="stylesheet">
+    
+    <!-- Enlace al CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Estilos del reproductor -->
     <link href="skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
-
-    <style>
-        html, body {
-            background-color: #1a1a1a;
-            color: white;
-            font-family: Lato, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        nav {
-            background: #333;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 15px;
-        }
-        nav ul li {
-            display: inline;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        section {
-            margin-top: 40px;
-            padding: 20px;
-            background: #222;
-            border-radius: 5px;
-        }
-    </style>
+    <link href="atomatizacion_laravel_embed.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
+    <section id="box-video">
+        <section id="configuracion">
+            <h2>Video</h2>
+            <p>Se usa TechSmith Smart Player para la reproducción del video.</p>
+            <div class="video-container" id="tscVideoContent"></div>
+        </section>
 
-<!-- Índice de navegación -->
-<nav>
-    <ul>
-        <li><a href="#introduccion">Introducción</a></li>
-        <li><a href="#configuracion">Configuración del Video</a></li>
-        <li><a href="#ejecucion">Ejecución del Script</a></li>
-    </ul>
-</nav>
+        <section id="indice">
+            <h2>Índice de Contenido</h2>
+            <p>Selecciona la opción deseada en la barra de navegación.</p>
+            <ul>
+                <li>
+                    <span onclick="skipTo(9)">00:09 - Introducción</span>
+                    <ol>
+                        <li>Presentación y propósito del video.</li>
+                        <li>
+                            Explicación del automatizador para construir capas en una
+                            arquitectura hexagonal.
+                        </li>
+                    </ol>
+                </li>
 
-<!-- Secciones con identificadores -->
-<section id="introduccion">
-    <h2>Introducción</h2>
-    <p>Este documento presenta la configuración y ejecución del reproductor de video para la automatización en Laravel.</p>
-</section>
+                <li>
+                    <span onclick="skipTo(28)">00:28 - Explicación del archivo Format.csv</span>
+                    <ol>
+                        <li>Organización de la estructura de datos.</li>
+                        <li>Diferencias entre casos con y sin group.</li>
+                    </ol>
+                </li>
 
-<section id="configuracion">
-    <h2>Configuración del Video</h2>
-    <p>Se usa TechSmith Smart Player para la reproducción del video.</p>
-    <div id="tscVideoContent">
-        <img width="32px" height="32px" style="position: absolute; top: 50%; left: 50%; margin: -16px 0 0 -16px"
-            src="data:image/gif;base64,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">
-    </div>
-</section>
+                <li>
+                    <span onclick="skipTo(57)">00:57 - Ejemplo sin group (WhatsAppAction)</span>
+                    <ol>
+                        <li>Migraciones requeridas.</li>
+                        <li>Estructura de la tabla WhatsAppAction.</li>
+                        <li>Nomenclatura del BoundedContext.</li>
+                        <li>Uso de nombres singulares en las tablas.</li>
+                        <li>Clave primaria y restricciones de columnas.</li>
+                    </ol>
+                </li>
 
-<section id="ejecucion">
-    <h2>Ejecución del Script</h2>
-    <p>El siguiente script inicializa el reproductor de video:</p>
+                <li>
+                    <span onclick="skipTo(207)">03:27 - Ejemplo de una tabla relacional
+                        (WhatsAppApplicationStates)</span>
+                    <ol>
+                        <li>Explicación de tablas pivote y relacionales.</li>
+                        <li>Definición de claves foráneas y su relación.</li>
+                        <li>Ejemplo con WhatsappActionTemplate.</li>
+                        <li>Tipos de relaciones (1 a muchos).</li>
+                        <li>Restricciones cascade delete.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(350)">05:50 - Ejemplo con más restricciones y validaciones</span>
+                    <ol>
+                        <li>Uso de atributos adicionales como max_length.</li>
+                        <li>Definición de restricciones de longitud en columnas.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(422)">07:02 - Transición a ejemplos con group</span>
+                    <ol>
+                        <li>Introducción a estructuras con agrupaciones.</li>
+                        <li>
+                            Explicación de restricciones adicionales aplicadas en grupos.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(453)">07:33 - Finalización del caso sin group y validaciones
+                        adicionales</span>
+                    <ol>
+                        <li>Explicación de validaciones como max_length.</li>
+                        <li>
+                            Importancia de definir correctamente restricciones para datos.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(468)">07:48 - Ejemplo con group (CreditService)</span>
+                    <ol>
+                        <li>Diferencias entre estructuras con y sin grupos.</li>
+                        <li>Estructura del Domain Layer en un sistema con grupos.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(492)">08:12 - Comparación entre estructuras con y sin group</span>
+                    <ol>
+                        <li>Ejemplo con CommunicationService (sin group).</li>
+                        <li>Ejemplo con CreditService (con group).</li>
+                        <li>
+                            Explicación de cómo los archivos se organizan en carpetas
+                            según la estructura del sistema.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(520)">08:40 - Ejemplo con group en la entidad Status</span>
+                    <ol>
+                        <li>Definición de group state.</li>
+                        <li>
+                            Importancia de usar nombres en minúsculas y en singular.
+                        </li>
+                        <li>Impacto en la generación de scripts y automatización.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(578)">09:38 - Migraciones en estructuras con group (ejemplo con
+                        Credit)</span>
+                    <ol>
+                        <li>
+                            Explicación de la estructura de migraciones en una tabla de
+                            créditos.
+                        </li>
+                        <li>
+                            Uso de nombres singulares en las tablas para evitar errores en
+                            scripts.
+                        </li>
+                        <li>Definición de claves primarias (UUID).</li>
+                        <li>Restricciones como unique y autoincrement.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(792)">13:12 - Introducción a la automatización con el script</span>
+                    <ol>
+                        <li>Explicación del propósito del script.</li>
+                        <li>
+                            Inicio de la demostración del funcionamiento del script.
+                        </li>
+                        <li>Disponibilidad del script en GitHub para compartirlo.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(810)">13:30 - Acceso al Script y Configuración del Entorno</span>
+                    <ol>
+                        <li>Disponibilidad del script en GitHub.</li>
+                        <li>Requisitos para acceder y ejecutar el script.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(817)">13:37 - Compilación del Script en Python</span>
+                    <ol>
+                        <li>Uso de main.py como punto de entrada.</li>
+                        <li>
+                            Preferencia por Anaconda para gestionar entornos de
+                            desarrollo.
+                        </li>
+                        <li>
+                            Instalación y configuración de Anaconda para evitar conflictos
+                            de paquetes.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(827)">13:47 - Ejecución en Distintos Entornos</span>
+                    <ol>
+                        <li>Uso de Anaconda Navigator.</li>
+                        <li>Alternativa de ejecución en Python 3 sin Anaconda.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(867)">14:27 - IDE Recomendados para Desarrollo</span>
+                    <ol>
+                        <li>Preferencia por PyCharm y Visual Studio Code.</li>
+                        <li>Configuración del entorno de ejecución en PyCharm.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(885)">14:45 - Apertura y Ejecución del Script en PyCharm</span>
+                    <ol>
+                        <li>Cómo abrir main.py dentro del entorno configurado.</li>
+                        <li>Verificación de dependencias y preparación del entorno.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(900)">15:00 - Entorno de Pruebas con XAMPP y Laravel</span>
+                    <ol>
+                        <li>Uso de XAMPP para pruebas locales.</li>
+                        <li>
+                            Configuración de un entorno Laravel para pruebas del script.
+                        </li>
+                        <li>Ejecución y depuración en PHPStorm.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(930)">15:30 - Consideraciones para Desarrollo en Servidores Locales y
+                        Remotos</span>
+                    <ol>
+                        <li>Diferencias entre desarrollo local y servidor.</li>
+                        <li>Configuración recomendada para pruebas eficientes.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(937)">15:37 - Diferentes Métodos de Configuración</span>
+                    <ol>
+                        <li>Explicación de dos maneras de configurar el entorno.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(980)">16:20 - Organización de Archivos y Carpetas</span>
+                    <ol>
+                        <li>Eliminación de carpetas innecesarias.</li>
+                        <li>Compartición de carpetas básicas del shared.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1007)">16:47 - Configuración del Bounded Context</span>
+                    <ol>
+                        <li>Uso del BoundedContext correcto.</li>
+                        <li>Copia del path absoluto para su ejecución.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1020)">17:00 - Configuración del main.py</span>
+                    <ol>
+                        <li>Opciones disponibles en la ejecución del script.</li>
+                        <li>Ubicación y edición en la línea 50.</li>
+                        <li>Modificación entre development y production.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1042)">17:22 - Ejecución del Script</span>
+                    <ol>
+                        <li>Selección del archivo main.py.</li>
+                        <li>Diferentes opciones al ejecutar el script.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1047)">17:27 - Carga de Archivos CSV</span>
+                    <ol>
+                        <li>Selección del archivo format.csv.</li>
+                        <li>Carga y validación de la ruta absoluta.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1079)">17:59 - Ejecución del Proceso</span>
+                    <ol>
+                        <li>Selección del archivo CSV.</li>
+                        <li>Inicio del procesamiento.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1187)">19:47 - Exploración del Dominio "Créditos"</span>
+                    <ol>
+                        <li>Diferencias entre nombres en singular y plural.</li>
+                        <li>Código adicional para versiones antiguas de PHP.</li>
+                        <li>Generación automática de CRUD básico y excepciones.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1230)">20:30 - Generación Automática del CRUD</span>
+                    <ol>
+                        <li>Implementación del CRUD en la capa de aplicación.</li>
+                        <li>Respuesta generada basada en el format.csv.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1264)">21:04 - Automatización de la Estructura</span>
+                    <ol>
+                        <li>Pruebas iniciales del sistema.</li>
+                        <li>
+                            Posibilidad de extender la automatización a la
+                            infraestructura.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1299)">21:39 - Revisión del "WhatsappManagement"</span>
+                    <ol>
+                        <li>Organización de archivos dentro del BoundedContext.</li>
+                        <li>Generación automática sin subdivisión de carpetas.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1326)">22:06 - Beneficios de la Automatización</span>
+                    <ol>
+                        <li>
+                            Eliminación del trabajo manual en la generación de
+                            estructuras.
+                        </li>
+                        <li>Enfoque en la infraestructura y mejoras específicas.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1411)">23:31 - Revisión de la Estructura Generada</span>
+                    <ol>
+                        <li>
+                            Validación de CRUDs, acciones y respuestas en singular y
+                            plural.
+                        </li>
+                        <li>
+                            Primera versión del código, con posibilidad de optimización.
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1430)">23:50 - Depuración y Eliminación de Archivos Temporales</span>
+                    <ol>
+                        <li>Eliminación del output.zip después de la validación.</li>
+                        <li>Trabajo en entornos locales o remotos.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1441)">24:01 - Ejecución y Selección de Carpeta de Descarga</span>
+                    <ol>
+                        <li>Carga del CSV en el sistema.</li>
+                        <li>
+                            Especificación de la carpeta de salida (ejemplo: Descargas).
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1460)">24:20 - Revisión del "Shared Básico"</span>
+                    <ol>
+                        <li>
+                            Generador de UUIDs, Value Objects, y Excepciones Básicas.
+                        </li>
+                        <li>
+                            Tipos de valores predefinidos: Array, Float, Integer, String.
+                        </li>
+                        <li>Infraestructura y persistencia con Eloquent NotFound.</li>
+                    </ol>
+                </li>
+
+                <li>
+                    <span onclick="skipTo(1500)">25:00 - Conclusión y Personalización del Proyecto</span>
+                    <ol>
+                        <li>
+                            Explicación del enfoque modular y escalable del sistema.
+                        </li>
+                        <li>
+                            Personalización de Requests y funcionalidades específicas.
+                        </li>
+                        <li>Mensaje final y cierre del video.</li>
+                    </ol>
+                </li>
+            </ul>
+        </section>
+    </section>
+
     <script src="scripts/config_xml.js"></script>
-</section>
+    <script type="text/javascript">
+        function skipTo(seconds) {
+            let video = document.querySelector("#tscVideoContent video");
+            if (video) {
+                video.currentTime = seconds;
+                video.play();
+            } else {
+                console.error("El video no se ha encontrado.");
+            }
+        }
+        (function (window) {
+            function setup(TSC) {
+                TSC.playerConfiguration.addMediaSrc("atomatizacion laravel.mp4");
+                TSC.playerConfiguration.setXMPSrc("atomatizacion laravel_config.xml");
+                TSC.playerConfiguration.setAutoHideControls(true);
+                TSC.playerConfiguration.setBackgroundColor("#000000");
+                TSC.playerConfiguration.setCaptionsEnabled(true);
+                TSC.playerConfiguration.setSidebarEnabled(false);
 
+                TSC.playerConfiguration.setAutoPlayMedia(false);
+                TSC.playerConfiguration.setPosterImageSrc(
+                    "atomatizacion_laravel_First_Frame.png"
+                );
+                TSC.playerConfiguration.setIsSearchable(true);
+                TSC.playerConfiguration.setEndActionType("stop");
+                TSC.playerConfiguration.setEndActionParam("true");
+                TSC.playerConfiguration.setAllowRewind(-1);
+
+                TSC.localizationStrings.setLanguage(TSC.languageCodes.ENGLISH);
+
+                TSC.mediaPlayer.init("#tscVideoContent");
+            }
+
+            function loadScript(e, t) {
+                if (!e || !(typeof e === "string")) {
+                    return;
+                }
+                var n = document.createElement("script");
+                if (typeof document.attachEvent === "object") {
+                    n.onreadystatechange = function () {
+                        if (n.readyState === "complete" || n.readyState === "loaded") {
+                            if (t) {
+                                t();
+                            }
+                        }
+                    };
+                } else {
+                    n.onload = function () {
+                        if (t) {
+                            t();
+                        }
+                    };
+                }
+                n.src = e;
+                document.getElementsByTagName("head")[0].appendChild(n);
+            }
+
+            loadScript("scripts/techsmith-smart-player.min.js", function () {
+                setup(window["TSC"]);
+            });
+        })(window);
+    </script>
 </body>
+
 </html>

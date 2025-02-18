@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+#tsc_player {
+   z-index: 9999;	
+}
+
+.tscplayer_inline {
+	position:static;
+	margin: 30px;
+	width: 852px;
+	height: 480px;
+	z-index:auto;
+}
+
+.tscplayer_fullframe {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	z-index: 9999;	
+}
+
+@media screen and (max-width: 852px) {
+    .tscplayer_inline {
+	width: 100%;
+    }
+}
+
+/* ______________________ */
+
+/* Estilos generales */
+html, body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Lato, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor de navegación */
+nav {
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Secciones */
+section {
+    margin-top: 40px;
+    padding: 20px;
+    background: #222;
+    border-radius: 5px;
+}
+
+/* Contenedor de video */
+.video-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-color: black;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor de video y índice */
+#box-video {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Sección del video */
+#configuracion {
+    width: 70%;
+    height: max-content !important;
+}
+
+/* Sección del índice */
+#indice {
+    width: 30%;
+    background: #222;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+#indice ul {
+    list-style: none;
+    padding: 0;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#indice ul li span {
+    padding: 5px;
+    cursor: pointer;
+    color: #61dafb;
+}
+
+#indice ul li span:hover {
+    text-decoration: underline;
+}
+
+#indice ul ol {
+    margin-left: 20px;
+}
+
+/* Flexbox Helper */
+.d-flex {
+    display: flex;
+}
