@@ -94,16 +94,17 @@ section {
 
 /* Sección del video */
 #configuracion {
+    margin-top: 0 !important;
     width: 70%;
     height: max-content !important;
 }
 
 /* Sección del índice */
 #indice {
+    margin-top: 0 !important;
     width: 30%;
     background: #222;
     border-radius: 5px;
-    padding: 15px;
 }
 
 #indice ul {
