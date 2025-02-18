@@ -197,7 +197,7 @@ La generación de archivos sigue esta estructura de salida basada en el `bounded
 │   │   │   │   ├── IWhatsappApplicationStateRepository.php
 ```
 
-## 📜 Ejemplo de Archivo CSV
+## 📜 Ejemplo de Archivo [CSV](https://github.com/soularius/AUTOMATIZATION-HEX-LARAVEL/blob/master/Format/format.csv)
 
 El archivo CSV puede definir un contexto delimitado (`bounded_context`) y opcionalmente un grupo (`group`). Debe seguir una estructura como la siguiente:
 
@@ -228,10 +228,14 @@ Esto generará una estructura dentro del contexto `WhatsappManagement` con la ta
 
 Desarrollado por: **Ing. Yined Milanyela Molina Barrios**
 
-https://github.com/soularius
+[https://github.com/soularius](https://)
 
-https://www.linkedin.com/in/yined-milanyela-molina-barrios/
+[https://www.linkedin.com/in/yined-milanyela-molina-barrios/](https://)
 
 Empresa: **OPPERWEB**
 
-https://opperweb.com/
+[https://opperweb.com/](https://)
+
+## 🔮 Software
+
+[https://github.com/soularius/AUTOMATIZATION-HEX-LARAVEL](https://)
