@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Automatización Laravel</title>
     
-    <!-- Enlace al CSS externo -->
-    <link rel="stylesheet" href="styles.css">
-
     <!-- Estilos del reproductor -->
     <link href="skins/remix/techsmith-smart-player.min.css" rel="stylesheet" type="text/css" />
     <link href="atomatizacion_laravel_embed.css" rel="stylesheet" type="text/css" />
@@ -30,13 +27,9 @@
                     <span onclick="skipTo(9)">00:09 - Introducción</span>
                     <ol>
                         <li>Presentación y propósito del video.</li>
-                        <li>
-                            Explicación del automatizador para construir capas en una
-                            arquitectura hexagonal.
-                        </li>
+                        <li>Explicación del automatizador para construir capas en una arquitectura hexagonal.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(28)">00:28 - Explicación del archivo Format.csv</span>
                     <ol>
@@ -44,7 +37,6 @@
                         <li>Diferencias entre casos con y sin group.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(57)">00:57 - Ejemplo sin group (WhatsAppAction)</span>
                     <ol>
@@ -55,10 +47,8 @@
                         <li>Clave primaria y restricciones de columnas.</li>
                     </ol>
                 </li>
-
                 <li>
-                    <span onclick="skipTo(207)">03:27 - Ejemplo de una tabla relacional
-                        (WhatsAppApplicationStates)</span>
+                    <span onclick="skipTo(207)">03:27 - Ejemplo de una tabla relacional (WhatsAppApplicationStates)</span>
                     <ol>
                         <li>Explicación de tablas pivote y relacionales.</li>
                         <li>Definición de claves foráneas y su relación.</li>
@@ -67,7 +57,6 @@
                         <li>Restricciones cascade delete.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(350)">05:50 - Ejemplo con más restricciones y validaciones</span>
                     <ol>
@@ -75,28 +64,20 @@
                         <li>Definición de restricciones de longitud en columnas.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(422)">07:02 - Transición a ejemplos con group</span>
                     <ol>
                         <li>Introducción a estructuras con agrupaciones.</li>
-                        <li>
-                            Explicación de restricciones adicionales aplicadas en grupos.
-                        </li>
+                        <li>Explicación de restricciones adicionales aplicadas en grupos.</li>
                     </ol>
                 </li>
-
                 <li>
-                    <span onclick="skipTo(453)">07:33 - Finalización del caso sin group y validaciones
-                        adicionales</span>
+                    <span onclick="skipTo(453)">07:33 - Finalización del caso sin group y validaciones adicionales</span>
                     <ol>
                         <li>Explicación de validaciones como max_length.</li>
-                        <li>
-                            Importancia de definir correctamente restricciones para datos.
-                        </li>
+                        <li>Importancia de definir correctamente restricciones para datos.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(468)">07:48 - Ejemplo con group (CreditService)</span>
                     <ol>
@@ -104,58 +85,91 @@
                         <li>Estructura del Domain Layer en un sistema con grupos.</li>
                     </ol>
                 </li>
-
+                
                 <li>
                     <span onclick="skipTo(492)">08:12 - Comparación entre estructuras con y sin group</span>
                     <ol>
                         <li>Ejemplo con CommunicationService (sin group).</li>
                         <li>Ejemplo con CreditService (con group).</li>
-                        <li>
-                            Explicación de cómo los archivos se organizan en carpetas
-                            según la estructura del sistema.
-                        </li>
+                        <li>Explicación de cómo los archivos se organizan en carpetas según la estructura del sistema.</li>
                     </ol>
                 </li>
-
+                
                 <li>
                     <span onclick="skipTo(520)">08:40 - Ejemplo con group en la entidad Status</span>
                     <ol>
                         <li>Definición de group state.</li>
-                        <li>
-                            Importancia de usar nombres en minúsculas y en singular.
-                        </li>
+                        <li>Importancia de usar nombres en minúsculas y en singular.</li>
                         <li>Impacto en la generación de scripts y automatización.</li>
                     </ol>
                 </li>
-
+                
                 <li>
-                    <span onclick="skipTo(578)">09:38 - Migraciones en estructuras con group (ejemplo con
-                        Credit)</span>
+                    <span onclick="skipTo(578)">09:38 - Migraciones en estructuras con group (ejemplo con Credit)</span>
                     <ol>
-                        <li>
-                            Explicación de la estructura de migraciones en una tabla de
-                            créditos.
-                        </li>
-                        <li>
-                            Uso de nombres singulares en las tablas para evitar errores en
-                            scripts.
-                        </li>
+                        <li>Explicación de la estructura de migraciones en una tabla de créditos.</li>
+                        <li>Uso de nombres singulares en las tablas para evitar errores en scripts.</li>
                         <li>Definición de claves primarias (UUID).</li>
                         <li>Restricciones como unique y autoincrement.</li>
                     </ol>
                 </li>
-
+                
+                <li>
+                    <span onclick="skipTo(652)">10:52 - Ejemplo con Credit ID y User UUID</span>
+                    <ol>
+                        <li>Diferencias entre UUID y UnsignedBigInteger.</li>
+                        <li>Aplicación de restricciones como unique.</li>
+                        <li>Explicación de cómo interpretar los datos de la migración.</li>
+                    </ol>
+                </li>
+                
+                <li>
+                    <span onclick="skipTo(660)">11:00 - Continuación de la estructura de atributos en tablas</span>
+                    <ol>
+                        <li>Definición de user_uuid, status_uuid y otros atributos clave.</li>
+                        <li>Explicación sobre tipos de datos (UUID, Decimal, Integer).</li>
+                        <li>Restricciones en atributos como 15-2 para decimales.</li>
+                    </ol>
+                </li>
+                
+                <li>
+                    <span onclick="skipTo(685)">11:25 - Ejemplo de atributos adicionales y restricciones</span>
+                    <ol>
+                        <li>interest_rate y number_of_payments.</li>
+                        <li>Importancia de definir restricciones explícitas en las migraciones.</li>
+                        <li>Uso del tipo timestamp y su condición nullable.</li>
+                    </ol>
+                </li>   
+                <li>
+                    <span onclick="skipTo(720)">12:00 - Uso de la barra vertical | para definir relaciones y restricciones</span>
+                    <ol>
+                        <li>Explicación de cómo se documentan atributos relacionales.</li>
+                        <li>Ejemplos de restricciones y relaciones en atributos.</li>
+                    </ol>
+                </li>
+                <li>
+                    <span onclick="skipTo(741)">12:21 - Resumen de la estructura de los archivos CSV</span>
+                    <ol>
+                        <li>Definición de BoundedContext, TableName y atributos.</li>
+                        <li>Diferencias entre estructuras con y sin group.</li>
+                        <li>Convención de nombres: minúsculas y singulares.</li>
+                    </ol>
+                </li>
+                <li>
+                    <span onclick="skipTo(775)">12:55 - Ejemplo de estructura con group</span>
+                    <ol>
+                        <li>Comparación entre tablas con agrupaciones y sin ellas.</li>
+                        <li>Posibilidad de múltiples tablas dentro de un grupo.</li>
+                    </ol>
+                </li>
                 <li>
                     <span onclick="skipTo(792)">13:12 - Introducción a la automatización con el script</span>
                     <ol>
                         <li>Explicación del propósito del script.</li>
-                        <li>
-                            Inicio de la demostración del funcionamiento del script.
-                        </li>
+                        <li>Inicio de la demostración del funcionamiento del script.</li>
                         <li>Disponibilidad del script en GitHub para compartirlo.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(810)">13:30 - Acceso al Script y Configuración del Entorno</span>
                     <ol>
@@ -163,22 +177,14 @@
                         <li>Requisitos para acceder y ejecutar el script.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(817)">13:37 - Compilación del Script en Python</span>
                     <ol>
                         <li>Uso de main.py como punto de entrada.</li>
-                        <li>
-                            Preferencia por Anaconda para gestionar entornos de
-                            desarrollo.
-                        </li>
-                        <li>
-                            Instalación y configuración de Anaconda para evitar conflictos
-                            de paquetes.
-                        </li>
+                        <li>Preferencia por Anaconda para gestionar entornos de desarrollo.</li>
+                        <li>Instalación y configuración de Anaconda para evitar conflictos de paquetes.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(827)">13:47 - Ejecución en Distintos Entornos</span>
                     <ol>
@@ -186,7 +192,6 @@
                         <li>Alternativa de ejecución en Python 3 sin Anaconda.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(867)">14:27 - IDE Recomendados para Desarrollo</span>
                     <ol>
@@ -194,7 +199,6 @@
                         <li>Configuración del entorno de ejecución en PyCharm.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(885)">14:45 - Apertura y Ejecución del Script en PyCharm</span>
                     <ol>
@@ -202,34 +206,27 @@
                         <li>Verificación de dependencias y preparación del entorno.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(900)">15:00 - Entorno de Pruebas con XAMPP y Laravel</span>
                     <ol>
                         <li>Uso de XAMPP para pruebas locales.</li>
-                        <li>
-                            Configuración de un entorno Laravel para pruebas del script.
-                        </li>
+                        <li>Configuración de un entorno Laravel para pruebas del script.</li>
                         <li>Ejecución y depuración en PHPStorm.</li>
                     </ol>
                 </li>
-
                 <li>
-                    <span onclick="skipTo(930)">15:30 - Consideraciones para Desarrollo en Servidores Locales y
-                        Remotos</span>
+                    <span onclick="skipTo(930)">15:30 - Consideraciones para Desarrollo en Servidores Locales y Remotos</span>
                     <ol>
                         <li>Diferencias entre desarrollo local y servidor.</li>
                         <li>Configuración recomendada para pruebas eficientes.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(937)">15:37 - Diferentes Métodos de Configuración</span>
                     <ol>
                         <li>Explicación de dos maneras de configurar el entorno.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(980)">16:20 - Organización de Archivos y Carpetas</span>
                     <ol>
@@ -237,7 +234,6 @@
                         <li>Compartición de carpetas básicas del shared.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1007)">16:47 - Configuración del Bounded Context</span>
                     <ol>
@@ -245,7 +241,6 @@
                         <li>Copia del path absoluto para su ejecución.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1020)">17:00 - Configuración del main.py</span>
                     <ol>
@@ -254,7 +249,6 @@
                         <li>Modificación entre development y production.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1042)">17:22 - Ejecución del Script</span>
                     <ol>
@@ -262,7 +256,6 @@
                         <li>Diferentes opciones al ejecutar el script.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1047)">17:27 - Carga de Archivos CSV</span>
                     <ol>
@@ -270,7 +263,6 @@
                         <li>Carga y validación de la ruta absoluta.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1079)">17:59 - Ejecución del Proceso</span>
                     <ol>
@@ -278,7 +270,41 @@
                         <li>Inicio del procesamiento.</li>
                     </ol>
                 </li>
-
+                <li>
+                    <span onclick="skipTo(1080)">18:00 - Selección de Carpeta de Salida</span>
+                    <ol>
+                        <li>Copia del path de la carpeta de salida (phpStorm).</li>
+                        <li>Configuración para almacenar la salida generada.</li>
+                    </ol>
+                </li>
+                <li>
+                    <span onclick="skipTo(1101)">18:21 - Ejecución del Proceso de Generación</span>
+                    <ol>
+                        <li>Inicio del proceso de generación de archivos.</li>
+                        <li>Creación del archivo output.zip en modo Producción.</li>
+                    </ol>
+                </li>
+                <li>
+                    <span onclick="skipTo(1123)">18:43 - Verificación de la Salida Generada</span>
+                    <ol>
+                        <li>Copia y apertura del output.zip.</li>
+                        <li>Extracción de los archivos generados.</li>
+                    </ol>
+                </li>
+                <li>
+                    <span onclick="skipTo(1140)">19:00 - Exploración de Archivos Generados</span>
+                    <ol>
+                        <li>Estructura de carpetas generadas (credit y WhatsappManagement).</li>
+                        <li>Validación de los BoundedContext procesados.</li>
+                    </ol>
+                </li>
+                <li>
+                    <span onclick="skipTo(1174)">19:34 - Comparación con el Archivo de Formato</span>
+                    <ol>
+                        <li>Verificación de los BoundedContext cargados en format.csv.</li>
+                        <li>Confirmación de que solo se generaron los BoundedContext especificados.</li>
+                    </ol>
+                </li>
                 <li>
                     <span onclick="skipTo(1187)">19:47 - Exploración del Dominio "Créditos"</span>
                     <ol>
@@ -287,7 +313,6 @@
                         <li>Generación automática de CRUD básico y excepciones.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1230)">20:30 - Generación Automática del CRUD</span>
                     <ol>
@@ -295,18 +320,13 @@
                         <li>Respuesta generada basada en el format.csv.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1264)">21:04 - Automatización de la Estructura</span>
                     <ol>
                         <li>Pruebas iniciales del sistema.</li>
-                        <li>
-                            Posibilidad de extender la automatización a la
-                            infraestructura.
-                        </li>
+                        <li>Posibilidad de extender la automatización a la infraestructura.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1299)">21:39 - Revisión del "WhatsappManagement"</span>
                     <ol>
@@ -314,31 +334,20 @@
                         <li>Generación automática sin subdivisión de carpetas.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1326)">22:06 - Beneficios de la Automatización</span>
                     <ol>
-                        <li>
-                            Eliminación del trabajo manual en la generación de
-                            estructuras.
-                        </li>
+                        <li>Eliminación del trabajo manual en la generación de estructuras.</li>
                         <li>Enfoque en la infraestructura y mejoras específicas.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1411)">23:31 - Revisión de la Estructura Generada</span>
                     <ol>
-                        <li>
-                            Validación de CRUDs, acciones y respuestas en singular y
-                            plural.
-                        </li>
-                        <li>
-                            Primera versión del código, con posibilidad de optimización.
-                        </li>
+                        <li>Validación de CRUDs, acciones y respuestas en singular y plural.</li>
+                        <li>Primera versión del código, con posibilidad de optimización.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1430)">23:50 - Depuración y Eliminación de Archivos Temporales</span>
                     <ol>
@@ -346,39 +355,26 @@
                         <li>Trabajo en entornos locales o remotos.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1441)">24:01 - Ejecución y Selección de Carpeta de Descarga</span>
                     <ol>
                         <li>Carga del CSV en el sistema.</li>
-                        <li>
-                            Especificación de la carpeta de salida (ejemplo: Descargas).
-                        </li>
+                        <li>Especificación de la carpeta de salida (ejemplo: Descargas).</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1460)">24:20 - Revisión del "Shared Básico"</span>
                     <ol>
-                        <li>
-                            Generador de UUIDs, Value Objects, y Excepciones Básicas.
-                        </li>
-                        <li>
-                            Tipos de valores predefinidos: Array, Float, Integer, String.
-                        </li>
+                        <li>Generador de UUIDs, Value Objects, y Excepciones Básicas.</li>
+                        <li>Tipos de valores predefinidos: Array, Float, Integer, String.</li>
                         <li>Infraestructura y persistencia con Eloquent NotFound.</li>
                     </ol>
                 </li>
-
                 <li>
                     <span onclick="skipTo(1500)">25:00 - Conclusión y Personalización del Proyecto</span>
                     <ol>
-                        <li>
-                            Explicación del enfoque modular y escalable del sistema.
-                        </li>
-                        <li>
-                            Personalización de Requests y funcionalidades específicas.
-                        </li>
+                        <li>Explicación del enfoque modular y escalable del sistema.</li>
+                        <li>Personalización de Requests y funcionalidades específicas.</li>
                         <li>Mensaje final y cierre del video.</li>
                     </ol>
                 </li>
@@ -386,17 +382,31 @@
         </section>
     </section>
 
-    <script src="scripts/config_xml.js"></script>
     <script type="text/javascript">
+
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
         function skipTo(seconds) {
             let video = document.querySelector("#tscVideoContent video");
             if (video) {
                 video.currentTime = seconds;
                 video.play();
-            } else {
-                console.error("El video no se ha encontrado.");
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const timeParam = getParameterByName("time");
+            if (timeParam) {
+                const timeInSeconds = parseInt(timeParam, 10);
+                if (!isNaN(timeInSeconds)) {
+                    setTimeout(() => skipTo(timeInSeconds), 1000); // Espera 1 segundo para asegurar que el video está listo
+                }
+            }
+        });
+
         (function (window) {
             function setup(TSC) {
                 TSC.playerConfiguration.addMediaSrc("atomatizacion laravel.mp4");
